@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🧠 Text & Keyword Extraction with OCR 📝</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: radial-gradient(circle, #e0f7ff, #b3e5fc);
+            color: #004d66;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 25px;
+            box-shadow: 0 0 25px rgba(0, 153, 204, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #008cba;
+        }
+
+        .upload-form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00bcd4;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .file-label:hover {
+            background: #0097a7;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        select, .upload-btn {
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .upload-btn {
+            background: #007bb5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .upload-btn:hover {
+            background: #005f8f;
+        }
+
+        .result-column {
+            margin-top: 20px;
+        }
+
+        .result, .keywords {
+            background: #f0faff;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px dashed #90caf9;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+
+        ul {
+            list-style: 💡;
+            padding-left: 20px;
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(173, 216, 230, 0.4);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fun Bubbles -->
+    <div class="bubble" style="width: 80px; height: 80px; left: 20%; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 100px; height: 100px; left: 60%; animation-delay: 3s;"></div>
+    <div class="bubble" style="width: 60px; height: 60px; left: 80%; animation-delay: 6s;"></div>
+    <div class="bubble" style="width: 90px; height: 90px; left: 40%; animation-delay: 1s;"></div>
+
+    <div class="container">
+        <h1>🔍 Extract Text & Keywords 🎉</h1>
+
+        <div class="column">
+            <h2>📤 Upload a File</h2>
+            <form class="upload-form" method="POST" enctype="multipart/form-data">
+                <label class="file-label" for="file">
+                    <span>📄 Choose a File</span>
+                    <input type="file" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg, .gif">
+                </label>
+                <br>
+                <label for="file-type">Select File Type:</label>
+                <select id="file-type" name="file-type">
+                    <option value="image">🖼️ Image</option>
+                    <option value="pdf">📕 PDF</option>
+                </select>
+                <br>
+                <button class="upload-btn" type="submit">✨ Upload and Extract ✨</button>
+            </form>
+        </div>
+
+        <h2>🗂️ Extracted Keywords:</h2>
+        <div class="keywords">
+            {% if extracted_keywords %}
+                <ul>
+                    {% for keyword in extracted_keywords %}
+                        <li>{{ keyword }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                No keywords extracted.
+            {% endif %}
+        </div>
+
+        <div class="result-column">
+            <h2>📄 Extracted Text:</h2>
+            <div class="result">
+                {% if extracted_text %}
+                {{ extracted_text }}
+                {% else %}
+                No text extracted.
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

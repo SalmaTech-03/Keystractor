@@ -1,0 +1,136 @@
+/* Fun & Kid-Friendly Blue Bubble Style */
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: radial-gradient(circle, #e0f7ff, #b3e5fc);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #004d66;
+}
+
+/* Bubble animation background */
+.bubble {
+    position: absolute;
+    background: rgba(173, 216, 230, 0.3);
+    border-radius: 50%;
+    animation: float 12s infinite ease-in-out;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(0, 153, 204, 0.3);
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #008cba;
+}
+
+h2 {
+    color: #007acc;
+    margin-bottom: 10px;
+}
+
+.column, .result-column {
+    width: 100%;
+    padding: 20px;
+    background-color: #f0faff;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0, 102, 204, 0.15);
+}
+
+.upload-form {
+    text-align: center;
+}
+
+label.file-label {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+label.file-label:hover {
+    background-color: #0097a7;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+select {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border: 1px solid #00bcd4;
+    background-color: #e0f7fa;
+}
+
+.upload-btn {
+    background-color: #007bb5;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    margin-top: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+    background-color: #005f8f;
+}
+
+.result, .keywords {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px dashed #90caf9;
+    white-space: pre-wrap;
+}
+
+.keywords ul {
+    list-style-type: "💡 ";
+    padding-left: 20px;
+}
+
+.keywords li {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.result {
+    font-size: 18px;
+    color: #333;
+}
