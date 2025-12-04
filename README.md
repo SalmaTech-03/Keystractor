@@ -31,8 +31,6 @@ Wrapped in a playful, **kid-friendly "Blue Bubble" interface**, the complex back
 
 ---
 
-## 🧠 System Architecture
-
 ```mermaid
 graph TD
     subgraph "Frontend Layer"
@@ -59,6 +57,7 @@ graph TD
     I --> J
     J --> K["Web Dashboard"]
     end
+```
 
 ---
 
