@@ -36,30 +36,29 @@ Wrapped in a playful, **kid-friendly "Blue Bubble" interface**, the complex back
 ```mermaid
 graph TD
     subgraph "Frontend Layer"
-    A[User Uploads File] --> B(File Type Selection)
+    A["User Uploads File"] --> B("File Type Selection")
     end
 
     subgraph "Processing Core"
-    B -->|Image| C[OCR Engine (Tesseract)]
-    B -->|PDF| D[PDF Extractor (PyMuPDF)]
-    C --> E[Raw Text]
+    B -->|Image| C["OCR Engine (Tesseract)"]
+    B -->|PDF| D["PDF Extractor (PyMuPDF)"]
+    C --> E["Raw Text"]
     D --> E
     end
 
     subgraph "Intelligence Layer"
-    E --> F{NLP Pipeline}
-    F -->|SpaCy| G[Entity Extraction]
-    F -->|YAKE| H[Keyword Extraction]
-    F -->|Regex| I[Pattern Matching]
+    E --> F{"NLP Pipeline"}
+    F -->|SpaCy| G["Entity Extraction"]
+    F -->|YAKE| H["Keyword Extraction"]
+    F -->|Regex| I["Pattern Matching"]
     end
 
     subgraph "Output Layer"
-    G --> J[Structured Results]
+    G --> J["Structured Results"]
     H --> J
     I --> J
-    J --> K[Web Dashboard]
+    J --> K["Web Dashboard"]
     end
-```
 
 ---
 
