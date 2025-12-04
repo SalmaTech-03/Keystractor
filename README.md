@@ -1,6 +1,3 @@
-Here is a **stunning, neon-styled, and highly detailed README.md** for your `Keystractor` project, incorporating the "Wow Factor" and tabular methodology as requested.
-
-***
 
 # 🔑 Keystractor: Intelligent Keyword & Entity Extraction Engine
 ### *Unlock the Hidden Value in Your Documents*
